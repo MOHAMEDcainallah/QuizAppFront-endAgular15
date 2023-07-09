@@ -1,0 +1,53 @@
+<div class="div container">
+  <p-card >
+    <div class="p-card-header">
+      <h1 style="color: #0dbfd5">{{ quiz.title }}</h1>
+    </div>
+    <div class="p-card-body">
+      <div class="p-field">
+        <label for="category"><b>Category:</b></label>
+        <span> {{ quiz.category }}</span>
+      </div>
+      <div class="p-field">
+        <label for="description"><b>Description:</b></label>
+        <span> {{ quiz.description }}</span>
+      </div>
+      <div class="p-field">
+        <label for="maxMarks"><b>Max Marks:</b></label>
+        <span> {{ quiz.maxMarks }}</span>
+      </div>
+      <div class="p-field">
+        <label for="numberOfQuestions"><b>Number of Questions:</b></label>
+        <span> {{ quiz.numberOfQuestions }}</span>
+      </div>
+      <div class="quiz-image mt-2">
+        <img src="assets/images/js.png" alt="Quiz Image" width="10%">
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<div class="div container" style="margin-top: 20px;">
+  <button pButton label="Add Questions" class="p-button-raised p-button-primary" routerLink="add-question"></button>
+</div>
+
+<p-table [value]="questions">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Question</th>
+      <th>Options</th>
+      <th>Correct Answer</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-question>
+    <tr>
+      <td>{{ question.question }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let option of question.options">{{ option }}</li>
+        </ul>
+      </td>
+      <td>{{ question.correctAnswer }}</td>
+    </tr>
+  </ng-template>
+</p-table>

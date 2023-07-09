@@ -1,0 +1,19 @@
+
+
+<div class="container">
+  <h1 style="color:#0dbfd5">Start a Quiz!</h1>
+
+<div class="card2 mt-4">
+  <div class="card-container">
+    <div class="card-wrapper">
+        <p-card routerLink="/student/start-quiz"    *ngFor="let language of programmingLanguages" [header]="language.name" [subheader]="language.description">
+          <img [src]="'assets/images/' + language.image" [alt]="language.name"   class="language-image" />
+        </p-card>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+

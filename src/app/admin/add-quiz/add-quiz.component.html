@@ -1,0 +1,50 @@
+
+
+
+<div class="div wrapper">
+  <div class="div container mt-5">
+      <p-card>
+          <div class="p-card-header">
+              <h1 style="color:#0dbfd5">Add New Quiz</h1>
+          </div>
+          <div class="p-card-body">
+            <form class="form-container">
+              <div class="p-field">
+                <label for="title"><b>Title</b></label>
+                <input id="title" required name="title" pInputText placeholder="Enter title for category">
+              </div>
+
+              <div class="p-field">
+                <label for="description"><b>Quiz Description</b></label>
+                <input id="description" required name="description" pInputText placeholder="Enter description for category">
+              </div>
+
+              <div class="p-field">
+                <label for="category">Select any category</label>
+                <p-dropdown id="category" name="category" optionLabel="title"></p-dropdown>
+              </div>
+
+              <div class="p-field">
+                <label for="maxMarks">Enter Max marks of quiz</label>
+                <input id="maxMarks" name="maxMarks" required pInputText placeholder="Enter max Marks">
+              </div>
+
+              <div class="p-field">
+                <label for="numberOfQuestions">Number of questions in quiz</label>
+                <input id="numberOfQuestions" name="numberOfQuestions" required pInputText placeholder="Enter number of questions in quiz">
+              </div>
+
+              <div class="p-field">
+                <p-toggleButton name="active" onLabel="Publish" offLabel="Don't publish"></p-toggleButton>
+              </div>
+
+              <div class="p-field button-container">
+                <button type="submit" pButton label="Add Quiz" class="p-button-raised p-button-primary"></button>
+                <button type="reset" pButton label="Clear" class="p-button-raised" style="margin-left: 20px;"></button>
+              </div>
+            </form>
+
+          </div>
+      </p-card>
+  </div>
+</div>

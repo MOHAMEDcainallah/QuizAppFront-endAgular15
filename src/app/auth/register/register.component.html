@@ -1,0 +1,43 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+      <img src="assets/images/logo.png"   class="mb-5 w-6rem flex-shrink-0">
+      <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+          <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+              <div class="text-center mb-5">
+                  <div class="text-900 text-3xl font-medium mb-3">Register </div>
+                  <span class="text-600 font-medium">Let's get started</span>
+              </div>
+
+              <div>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <label for="username" class="block text-l font-medium mb-2">Username</label>
+                  <input id="username" type="text" formControlName="username" placeholder="Username" pInputText class="w-full md:w-30rem mb-5"  >
+
+                  <label for="password1" class="block text-l mb-2">Password</label>
+                  <p-password id="password1" formControlName="password" placeholder="Password" [toggleMask]="true" styleClass="mb-5" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
+
+                  <label for="Lastname" class="block text-l mb-2">Lastname</label>
+                  <input id="Lastname" type="text" formControlName="lastname" placeholder="Lastname" pInputText class="w-full md:w-30rem mb-5"  >
+
+                  <label for="Firstname" class="block text-l mb-2">Firstname</label>
+                  <input id="Firstname" type="text" formControlName="firstname" placeholder="Firstname" pInputText class="w-full md:w-30rem mb-5"  >
+
+                  <label for="email1" class="block text-l mb-2">Email</label>
+                  <input id="email1" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5"  >
+
+                  <label for="phone" class="block text-l mb-2">Phone number</label>
+                  <input id="phone" type="text" formControlName="phone" placeholder="Phone number" pInputText class="w-full md:w-30rem mb-5"  >
+                  <div *ngIf="registerForm.get('phoneNumber')?.invalid && (registerForm.get('phoneNumber')?.dirty || registerForm.get('phoneNumber')?.touched)" class="text-red-500 mt-1">
+                    Phone number is required and must be 10 digits.
+                  </div>
+
+
+                  <div>
+                    <button pButton pRipple label="Register" class="w-full  text-l"  ></button>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  /* Use media queries to adjust container styles for different screen sizes if needed */
+  @media (min-width: 576px) {
+    max-width: 720px;
+  }
+  @media (min-width: 768px) {
+    max-width: 960px;
+  }
+  @media (min-width: 992px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1400px; /* Adjust the value to make it wider */
+  }
+}

@@ -1,0 +1,115 @@
+<div class="bootstrap-wrapper" *ngIf="!isSubmit" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2" style="display: flex; justify-content: space-between;">
+        <div >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ETLxoNnhbC_FhYQPfpIrkcdRwSPYsa-04e2EbKI8RAmvAbg88m0xdAd2Y_xqKpiXWZY&usqp=CAU" class="w3-round-xxlarge" alt="Norway" style="width: 25%; height: 30%">
+          <h3><b>Full Name:</b> Ahmed</h3>
+          <h3><b>Username:</b> Ahmed</h3>
+          <h3><b>User Email Id:</b> Ahmed@gmail.com</h3>
+        </div>
+        <div style="position: relative;">
+          <img src="assets/images/chrono.jpg" class="w3-round-xxlarge" alt="Norway" style="width: 50%; height: 50%">
+          <div>
+            <p style="color: white; background-color: black; padding: 5px;">1min: 45s</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-7">
+        <p-card>
+          <ng-template pTemplate="header">
+            <div>
+              <h5>Test Your Knowledge!! Ongoing Quiz is <b>Javascript</b></h5>
+              <p>
+                Think you're smart enough to be on Jeopardy? Find out with this super knowledge quiz!
+              </p>
+            </div>
+          </ng-template>
+          <ng-container *ngFor="let question of questions; let i = index">
+            <p-card>
+              <ng-template pTemplate="header">
+                <div>
+                  <h5>Ques.{{ i + 1 }}</h5>
+                  <p [innerHTML]="question.content"></p>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="content">
+                <div class="col-md-5">
+                  <label>
+                    <input type="radio" [name]="i" [value]="question.option1">
+                    {{ question.option1 }}
+                  </label>
+                </div>
+                <div class="col-md-7">
+                  <label>
+                    <input type="radio" [name]="i" [value]="question.option2">
+                    {{ question.option2 }}
+                  </label>
+                </div>
+                <div class="col-md-7">
+                  <label>
+                    <input type="radio" [name]="i" [value]="question.option3">
+                    {{ question.option3 }}
+                  </label>
+                </div>
+                <div class="col-md-7">
+                  <label>
+                    <input type="radio" [name]="i" [value]="question.option4">
+                    {{ question.option4 }}
+                  </label>
+                </div>
+              </ng-template>
+            </p-card>
+          </ng-container>
+          <div class="container text-center mt-3">
+            <button pButton type="button" label="Submit Quiz" class="p-button-primary" (click)="submitQuiz()"></button>
+          </div>
+        </p-card>
+      </div>
+
+  </div>
+</div>
+</div>
+
+<div class="bootstrap-wrapper" *ngIf="isSubmit">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <p-card>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ETLxoNnhbC_FhYQPfpIrkcdRwSPYsa-04e2EbKI8RAmvAbg88m0xdAd2Y_xqKpiXWZY&usqp=CAU" class="w3-round-xxlarge" alt="Norway" style="width: 25%; height: 30%">
+          <h3><b>Full Name:</b> Ahmed</h3>
+          <h3><b>Username:</b> Ahmed</h3>
+          <h3><b>User Email Id:</b> Ahmed@gmail.com</h3>
+        </p-card>
+      </div>
+      <div class="col-md-9">
+        <p-card>
+          <div class="p-card-header">
+            <h2 style="color: crimson">Result of <b>Javascript</b></h2>
+          </div>
+          <div class="p-card-content">
+            <p><b>Number of questions in quiz:</b> {{ questions.length }}</p>
+            <p><b>Number of questions attempted:</b> 5 </p>
+            <p><b>Number of Correct Answers:</b> 0 </p>
+            <p><b>Marks Obtained:</b> <i> 0</i></p>
+          </div>
+          <div class="p-card-actions">
+            <button pButton type="button" label="View" class="p-button-raised p-button-primary mx-3"></button>
+            <button pButton type="button" label="Download" class="p-button-raised p-button-warn"></button>
+          </div>
+        </p-card>
+        <p-card *ngFor="let question of questions; let i=index">
+          <div class="p-card-content">
+            <p>Ques.{{ i + 1 }} <span [innerHTML]="question.content"></span></p>
+            <p style="color:red">Correct Answer: {{ question.answer }}</p>
+            <p>Your Answer: {{ question.givenAnswer }}</p>
+            <p *ngIf="question.answer != question.givenAnswer" style="color: red;">Your answer is incorrect!!</p>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</div>
+

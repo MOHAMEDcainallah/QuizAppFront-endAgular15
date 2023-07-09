@@ -1,0 +1,56 @@
+<p-card>
+  <h1 class="text-center"><i>YOUR PROFILE DETAIL'S</i></h1>
+  <div class="p-card-content">
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="container text-center">
+          <img src="https://png.pngitem.com/pimgs/s/22-223968_default-profile-picture-circle-hd-png-download.png" class="profile-image">
+          <h3>Admin</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <p-table [value]="profileDetails" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-detail>
+                <tr>
+                  <td>Username</td>
+                  <td>{{ detail.username }}</td>
+                </tr>
+                <tr>
+                  <td>User Id</td>
+                  <td>EXAM{{ detail.userId }}</td>
+                </tr>
+                <tr>
+                  <td>User Email Id</td>
+                  <td>{{ detail.email }}</td>
+                </tr>
+                <tr>
+                  <td>Phone Number</td>
+                  <td>{{ detail.phonenumber }}</td>
+                </tr>
+                <tr>
+                  <td>Role</td>
+                  <td>{{ detail.authorities[0].authority }}</td>
+                </tr>
+                <tr>
+                  <td>Status</td>
+                  <td>{{ detail.enabled ? "ACTIVE" : "DISABLED" }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card-actions text-center">
+    <button pButton label="UPDATE" class="p-button-primary"></button>
+    <button pButton label="SHARE" class="p-button-secondary" style="margin-left: 4%;"></button>
+  </div>
+</p-card>

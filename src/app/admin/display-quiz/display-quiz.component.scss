@@ -1,0 +1,29 @@
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+p-card {
+  flex: 1 0 300px; /* Adjust the width of each card as needed */
+  margin-right: 10px; /* Adjust the spacing between cards */
+  margin-bottom: 10px;
+}
+
+
+.language-image {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+
+.card2 p-card {
+  cursor: pointer;
+}
+
+.card2 p-card:hover {
+
+  transform: translateY(-5px);
+}
+
+

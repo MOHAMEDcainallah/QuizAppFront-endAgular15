@@ -1,0 +1,45 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+      <img src="assets/images/logo.png"   class="mb-5 w-6rem flex-shrink-0">
+      <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+          <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+              <div class="text-center mb-5">
+                  <div class="text-900 text-3xl font-medium mb-3">Welcome </div>
+                  <span class="text-600 font-medium">Sign in to continue</span>
+              </div>
+
+              <div>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <label for="email1" class="block text-l font-medium mb-2">Email</label>
+                  <input id="email1" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full md:w-30rem ">
+                  <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="mb-5">
+                    <div *ngIf="loginForm.get('email')?.errors?.['required']" class="text-red-500">Email is required.</div>
+                    <div *ngIf="loginForm.get('email')?.errors?.['email']" class="text-red-500">Invalid email format.</div>
+                  </div>
+
+                  <label for="password1" class="block font-medium text-l mt-5 mb-2">Password</label>
+                  <p-password id="password1" formControlName="password" placeholder="Password" [toggleMask]="true"   inputStyleClass="w-full *  md:w-30rem"></p-password>
+                  <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="text-red-500 mb-5">
+                    Password is required.
+                  </div>
+
+                  <!-- <div class="flex align-items-center justify-content-between mt-5 mb-5 gap-5">
+                      <div class="flex align-items-center">
+                          <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                          <label for="rememberme1">Remember me</label>
+                      </div>
+                      <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
+                  </div> -->
+                  <div>
+                    <button pButton pRipple label="Sign In" class="mt-5 w-full text-l"></button>
+                  </div>
+
+                  <div *ngIf="showError" class="text-red-500 mt-2">
+                    Invalid email or password. Please try again.
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

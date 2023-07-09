@@ -1,0 +1,14 @@
+
+<div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+  <button pButton pRipple label="Add Quiz" class="p-button-primary" icon="pi pi-plus" routerLink="Add" ></button>
+</div>
+
+<div class="card2 mt-4">
+  <div class="card-container">
+    <div class="card-wrapper">
+      <p-card routerLink="details" *ngFor="let language of programmingLanguages" [header]="language.name" [subheader]="language.description">
+        <img [src]="'assets/images/' + language.image" [alt]="language.name"   class="language-image" />
+      </p-card>
+    </div>
+  </div>
+</div>
